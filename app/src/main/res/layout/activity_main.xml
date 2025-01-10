@@ -1,19 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
 
     <TextView
+        android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Helllo World"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Menú Principal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="24dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/btnRegistrarProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar Producto"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnProductosExistentes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Productos Existentes"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnVentas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ventas"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnRegistroClientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registro de Clientes"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#FF0000"
+        android:textColor="#FFFFFF"/>
+</LinearLayout>
