@@ -46,6 +46,7 @@
         android:text="Registro de Clientes"
         android:layout_marginBottom="16dp"/>
 
+
     <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"

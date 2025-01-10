@@ -3209,7 +3209,9 @@ id bounce
 id bounceBoth
 id bounceEnd
 id bounceStart
+id btnAgregarCliente
 id btnCerrarSesion
+id btnGuardarCliente
 id btnGuardarProducto
 id btnLogin
 id btnProductosExistentes
@@ -3218,6 +3220,7 @@ id btnRegistrarProducto
 id btnRegistrarVenta
 id btnRegistroClientes
 id btnRegresarMenu
+id btnRegresarMenuClientes
 id btnRegresarMenuVentas
 id btnVentas
 id buttonPanel
@@ -3307,9 +3310,11 @@ id etCantidadVendida
 id etCosto
 id etFechaVenta
 id etNombre
+id etNombreCliente
 id etNombreProducto
 id etPassword
 id etPrecio
+id etTelefonoCliente
 id etUsuario
 id existencias
 id exitUntilCollapsed
@@ -3374,9 +3379,9 @@ id line3
 id linear
 id listMode
 id list_item
+id lvClientes
 id lvProductos
 id m3_side_sheet
-id main
 id mainlogin
 id marquee
 id masked
@@ -3616,6 +3621,7 @@ id transition_scene_layoutid_cache
 id transition_transform
 id triangle
 id tvTitulo
+id tvTituloClientes
 id unchecked
 id uniform
 id unlabeled
@@ -3754,6 +3760,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_clientes
 layout activity_login
 layout activity_main
 layout activity_productos_existentes

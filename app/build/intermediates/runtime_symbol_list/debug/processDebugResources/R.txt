@@ -3208,7 +3208,9 @@ int id bounce 0x7f080061
 int id bounceBoth 0x7f080062
 int id bounceEnd 0x7f080063
 int id bounceStart 0x7f080064
+int id btnAgregarCliente 0x7f080215
 int id btnCerrarSesion 0x7f080200
+int id btnGuardarCliente 0x7f080216
 int id btnGuardarProducto 0x7f080207
 int id btnLogin 0x7f0801fa
 int id btnProductosExistentes 0x7f080201
@@ -3217,6 +3219,7 @@ int id btnRegistrarProducto 0x7f080202
 int id btnRegistrarVenta 0x7f080210
 int id btnRegistroClientes 0x7f080203
 int id btnRegresarMenu 0x7f080208
+int id btnRegresarMenuClientes 0x7f080217
 int id btnRegresarMenuVentas 0x7f080211
 int id btnVentas 0x7f080204
 int id buttonPanel 0x7f080065
@@ -3306,9 +3309,11 @@ int id etCantidadVendida 0x7f080212
 int id etCosto 0x7f08020a
 int id etFechaVenta 0x7f080213
 int id etNombre 0x7f08020b
+int id etNombreCliente 0x7f080218
 int id etNombreProducto 0x7f080214
 int id etPassword 0x7f0801fc
 int id etPrecio 0x7f08020c
+int id etTelefonoCliente 0x7f080219
 int id etUsuario 0x7f0801ff
 int id existencias 0x7f08020e
 int id exitUntilCollapsed 0x7f0800b7
@@ -3373,9 +3378,9 @@ int id line3 0x7f0800f1
 int id linear 0x7f0800f2
 int id listMode 0x7f0800f3
 int id list_item 0x7f0800f4
+int id lvClientes 0x7f08021a
 int id lvProductos 0x7f08020f
 int id m3_side_sheet 0x7f0800f5
-int id main 0x7f0800f6
 int id mainlogin 0x7f0801fe
 int id marquee 0x7f0800f7
 int id masked 0x7f0800f8
@@ -3615,6 +3620,7 @@ int id transition_scene_layoutid_cache 0x7f0801df
 int id transition_transform 0x7f0801e0
 int id triangle 0x7f0801e1
 int id tvTitulo 0x7f080205
+int id tvTituloClientes 0x7f08021b
 int id unchecked 0x7f0801e2
 int id uniform 0x7f0801e3
 int id unlabeled 0x7f0801e4
@@ -3753,6 +3759,7 @@ int layout abc_search_dropdown_item_icons_2line 0x7f0b0018
 int layout abc_search_view 0x7f0b0019
 int layout abc_select_dialog_material 0x7f0b001a
 int layout abc_tooltip 0x7f0b001b
+int layout activity_clientes 0x7f0b0071
 int layout activity_login 0x7f0b006c
 int layout activity_main 0x7f0b001c
 int layout activity_productos_existentes 0x7f0b006d

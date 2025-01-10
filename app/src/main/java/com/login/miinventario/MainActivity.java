@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnRegistroClientes.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, RegistroClientesActivity.class);
+            Intent intent = new Intent(MainActivity.this, ClientesActivity.class);
             startActivity(intent);
         });
 
