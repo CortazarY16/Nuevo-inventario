@@ -1,6 +1,7 @@
 package com.login.miinventario;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class RegistroProductoActivity extends AppCompatActivity {
     private EditText etNombre, etCantidad, etPrecio, etCosto;
-    private Button btnGuardarProducto;
+    private Button btnGuardarProducto, btnRegresarMenu;
     private DatabaseHelper dbHelper;
 
     @Override
@@ -32,6 +33,13 @@ public class RegistroProductoActivity extends AppCompatActivity {
         etPrecio = findViewById(R.id.etPrecio);
         etCosto = findViewById(R.id.etCosto);
         btnGuardarProducto = findViewById(R.id.btnGuardarProducto);
+        btnRegresarMenu = findViewById(R.id.btnRegresarMenu);
+        btnRegresarMenu.setOnClickListener(v ->{
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        });
+
 
         // Configurar el botón "Guardar Producto"
         btnGuardarProducto.setOnClickListener(v -> {
