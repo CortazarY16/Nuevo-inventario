@@ -7,49 +7,79 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME = "TiendaCosmeticos.db";
+    // Nombre y versión de la base de datos
+    private static final String DATABASE_NAME = "inventario.db";
+    private static final int DATABASE_VERSION = 1;
 
     // Tablas
-    public static final String TABLE_USERS = "users";
-    public static final String TABLE_PRODUCTS = "products";
-    public static final String TABLE_CLIENTS = "clients";
-    public static final String TABLE_SALES = "sales";
+    private static final String TABLE_PRODUCTOS = "productos";
+
+    // Columnas de la tabla `productos`
+    private static final String COLUMN_ID = "id";
+    private static final String COLUMN_NOMBRE = "nombre";
+    private static final String COLUMN_CANTIDAD = "cantidad";
+    private static final String COLUMN_PRECIO = "precio";
+    private static final String COLUMN_COSTO = "costo";
 
     public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 1);
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Crear tablas
-        db.execSQL("CREATE TABLE " + TABLE_USERS + " (id INTEGER PRIMARY KEY AUTOINCREMENT, username TEXT, password TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_PRODUCTS + " (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, price REAL, stock INTEGER)");
-        db.execSQL("CREATE TABLE " + TABLE_CLIENTS + " (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, phone TEXT)");
-        db.execSQL("CREATE TABLE " + TABLE_SALES + " (id INTEGER PRIMARY KEY AUTOINCREMENT, product_id INTEGER, quantity INTEGER, total_price REAL)");
+        // Crear la tabla de productos
+        String CREATE_PRODUCTOS_TABLE = "CREATE TABLE " + TABLE_PRODUCTOS + " ("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_NOMBRE + " TEXT, "
+                + COLUMN_CANTIDAD + " INTEGER, "
+                + COLUMN_PRECIO + " REAL, "
+                + COLUMN_COSTO + " REAL)";
+        db.execSQL(CREATE_PRODUCTOS_TABLE);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CLIENTS);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_SALES);
+        // Eliminar la tabla anterior si existe
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PRODUCTOS);
+        // Crear la tabla nuevamente
         onCreate(db);
     }
 
-    // Métodos para manejar datos (Ejemplo: usuarios)
-    public boolean insertUser(String username, String password) {
+    // Método para insertar un producto en la base de datos
+    public long insertarProducto(String nombre, int cantidad, double precio, double costo) {
         SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("username", username);
-        contentValues.put("password", password);
-        long result = db.insert(TABLE_USERS, null, contentValues);
-        return result != -1;
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NOMBRE, nombre);
+        values.put(COLUMN_CANTIDAD, cantidad);
+        values.put(COLUMN_PRECIO, precio);
+        values.put(COLUMN_COSTO, costo);
+
+        // Insertar el producto y devolver el ID generado
+        return db.insert(TABLE_PRODUCTOS, null, values);
     }
 
-    public boolean checkUser(String username, String password) {
+    // Método para obtener todos los productos
+    public Cursor obtenerProductos() {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_USERS + " WHERE username=? AND password=?", new String[]{username, password});
-        return cursor.getCount() > 0;
+        return db.rawQuery("SELECT * FROM " + TABLE_PRODUCTOS, null);
+    }
+
+    // Método para actualizar un producto
+    public int actualizarProducto(int id, String nombre, int cantidad, double precio, double costo) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NOMBRE, nombre);
+        values.put(COLUMN_CANTIDAD, cantidad);
+        values.put(COLUMN_PRECIO, precio);
+        values.put(COLUMN_COSTO, costo);
+
+        // Actualizar producto basado en su ID
+        return db.update(TABLE_PRODUCTOS, values, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
+    }
+
+    // Método para eliminar un producto
+    public int eliminarProducto(int id) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_PRODUCTOS, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
 }
