@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DatabaseHelper extends SQLiteOpenHelper {
     // Nombre y versión de la base de datos
     private static final String DATABASE_NAME = "inventario.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     // Tablas
     private static final String TABLE_PRODUCTOS = "productos";
@@ -20,6 +20,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_CANTIDAD = "cantidad";
     private static final String COLUMN_PRECIO = "precio";
     private static final String COLUMN_COSTO = "costo";
+
+    // Nombre de la tabla y columnas
+    private static final String TABLE_VENTAS = "ventas";
+    private static final String COLUMN_VENTA_ID = "id";
+    private static final String COLUMN_PRODUCTO = "producto";
+    private static final String COLUMN_CANTIDA = "cantidad";
+    private static final String COLUMN_FECHA = "fecha";
+
+
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,6 +44,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + COLUMN_PRECIO + " REAL, "
                 + COLUMN_COSTO + " REAL)";
         db.execSQL(CREATE_PRODUCTOS_TABLE);
+
+        String CREATE_VENTAS_TABLE = "CREATE TABLE " + TABLE_VENTAS + " ("
+                + COLUMN_VENTA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_PRODUCTO + " TEXT, "
+                + COLUMN_CANTIDAD + " INTEGER, "
+                + COLUMN_FECHA + " TEXT)";
+        db.execSQL(CREATE_VENTAS_TABLE);
+
     }
 
     @Override
@@ -82,6 +99,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete(TABLE_PRODUCTOS, COLUMN_ID + " = ?", new String[]{String.valueOf(id)});
     }
+
+    // Método para insertar una venta
+    public long insertarVenta(String producto, int cantidad, String fecha) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_PRODUCTO, producto);
+        values.put(COLUMN_CANTIDAD, cantidad);
+        values.put(COLUMN_FECHA, fecha);
+
+        return db.insert(TABLE_VENTAS, null, values);
+    }
+
+    // Método para obtener todas las ventas (opcional)
+    public Cursor obtenerVentas() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_VENTAS, null);
+    }
+
 }
 
 
