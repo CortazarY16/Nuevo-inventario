@@ -100,8 +100,8 @@ public class ClientesActivity extends AppCompatActivity {
 
     private void mostrarOpcionesCliente(int clienteId) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Selecciona una opción");
-        builder.setItems(new CharSequence[]{"Editar", "Eliminar"}, (dialog, which) -> {
+        builder.setTitle(getString(R.string.Opcion));
+        builder.setItems(new CharSequence[]{getString(R.string.Editar), getString(R.string.Eliminar)}, (dialog, which) -> {
             if (which == 0) {
                 // Editar cliente
                 Intent intent = new Intent(ClientesActivity.this, RegistroClientesActivity.class);
@@ -118,10 +118,10 @@ public class ClientesActivity extends AppCompatActivity {
     private void eliminarCliente(int clienteId) {
         int resultado = dbHelper.eliminarCliente(clienteId);
         if (resultado > 0) {
-            Toast.makeText(this, "Cliente eliminado.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,getString(R.string.EliCli), Toast.LENGTH_SHORT).show();
             cargarClientes();
         } else {
-            Toast.makeText(this, "Error al eliminar el cliente.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.ErrorEC), Toast.LENGTH_SHORT).show();
         }
     }
 }

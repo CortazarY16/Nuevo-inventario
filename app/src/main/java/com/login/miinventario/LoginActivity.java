@@ -29,9 +29,9 @@ public class LoginActivity extends AppCompatActivity {
             String usuario = etUsuario.getText().toString();
             String contrasenia = etPassword.getText().toString().trim();
             if (usuario.isEmpty() || contrasenia.isEmpty()) {
-                Toast.makeText(this, "error", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.ErrorCampos), Toast.LENGTH_SHORT).show();
             }
-            else if (usuario.equals("Admin") && contrasenia.equals("4dm1nRmb")) { // Lógica de inicio de sesión
+            else if (usuario.equals("Admin") && contrasenia.equals("admin")) { // Lógica de inicio de sesión
                 startActivity(new Intent(this, MainActivity.class));
                 finish();
             }
@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
             else {
-                Toast.makeText(this, "Error de igreso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.ErrorLogin), Toast.LENGTH_SHORT).show();
             }
         });
 

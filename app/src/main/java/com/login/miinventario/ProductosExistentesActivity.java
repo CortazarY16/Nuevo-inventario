@@ -61,8 +61,8 @@ public class ProductosExistentesActivity extends AppCompatActivity {
                 double costo = cursor.getDouble(cursor.getColumnIndex("costo"));
 
                 // Formatear los datos para mostrar en la lista
-                String producto = "Nombre: " + nombre + "\nCantidad: " + cantidad + "\nPrecio: " + precio
-                        +"\nCosto: " + costo ;
+                String producto = "\n"+ getString(R.string.Nombre)+" " + nombre + "\n"+getString(R.string.lvCantidad)+" " + cantidad + "\n"+getString(R.string.Precio)+" " + precio
+                        +"\n"+getString(R.string.Costo)+ " "+ costo +"\n";
                 productosList.add(producto);
             } while (cursor.moveToNext());
 

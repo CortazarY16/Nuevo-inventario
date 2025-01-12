@@ -15,7 +15,7 @@
             android:id="@+id/tvTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar Producto"
+            android:text="@string/lvTRP"
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -26,7 +26,7 @@
             android:id="@+id/etNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre del Producto"
+            android:hint="@string/lvNombre"
             android:inputType="text"
             android:layout_marginBottom="16dp"/>
 
@@ -34,7 +34,7 @@
             android:id="@+id/etCantidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cantidad"
+            android:hint="@string/lvCantidad"
             android:inputType="number"
             android:layout_marginBottom="16dp"/>
 
@@ -42,7 +42,7 @@
             android:id="@+id/etPrecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Precio de Venta"
+            android:hint="@string/lvPrecio"
             android:inputType="numberDecimal"
             android:layout_marginBottom="16dp"/>
 
@@ -50,7 +50,7 @@
             android:id="@+id/etCosto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Costo"
+            android:hint="@string/lvCosto"
             android:inputType="numberDecimal"
             android:layout_marginBottom="16dp"/>
 
@@ -58,13 +58,13 @@
             android:id="@+id/btnGuardarProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar Producto"
+            android:text="@string/BtnGuardarP"
             android:layout_marginTop="24dp"/>
         <Button
             android:id="@+id/btnRegresarMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Regresar al menu principal"
+            android:text="@string/btnRegresarMenu"
             android:layout_marginTop="24dp"
             />
 

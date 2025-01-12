@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Valores de uso globlales-->
+    <string name="app_name">Mi Inventario</string>
+    <string name="btnRegresarMenu">Regresar al Menú Principal</string>
+    <string name="Nombre">Nombre:</string>
+    <string name="Cantidad">Cantidad:</string>
+    <string name="Precio">Precio:</string>
+    <string name="Costo">Costo:</string>
+    <string name="Produto">Produto:</string>
+    <string name="Fecha">Fecha:</string>
+
+    <!--Traduccion de la interfaz de LOGIN-->
+    <string name="lvLogin">INICIO DE SESION</string>
+    <string name="lvtxtU">Usuario:</string>
+    <string name="lvtxtC">Contraseña:</string>
+    <string name="bntL">Ingresar</string>
+
+    <!--Traduccion de la interfaz de Menu Principal-->
+    <string name="lvPrincipal">Menú Principal</string>
+    <string name="btnRP">Productos</string>
+    <string name="btnPE">Bodega</string>
+    <string name="btnVe">Ventas</string>
+    <string name="btnRC">Clientes</string>
+    <string name="bntCS">Cerrar sesión</string>
+
+
+    <!--Traduccion de la interfaz de registrar productos-->
+    <string name="lvTRP">REGISTRAR NUEVOS PRODUCTOS</string>
+    <string name="lvNombre">Nombre del Producto:</string>
+    <string name="lvCantidad">Cantidad:</string>
+    <string name="lvPrecio">Precio de Venta:</string>
+    <string name="lvCosto">Costo del producto:</string>
+    <string name="BtnGuardarP">Guardar Registro</string>
+
+    <!--Traduccion de la interfaz de Proudctos existentes-->
+    <string name="lvPE">Productos Existentes</string>
+
+
+    <!--Traduccion de la interfaz de ventas-->
+    <string name="lvTNV">REGISTRAR NUEVA VENTA</string>
+    <string name="lvCant">Cantidad Disponibles:</string>
+    <!--Cantidad Disponible: 0 -->
+    <string name="lvCanVen">Cantidad a Vender:</string>
+    <string name="lvFecha">Fecha: (DD-MM-YYYY)</string>
+    <string name="BtnGV">Guardar Venta</string>
+
+    <!--Traduccion de la interfaz de Registrar nuevos Clientes-->
+    <string name="lvTNC">Nuevo Cliente</string>
+    <string name="lvNombreC">Nombre del Cliente:</string>
+    <string name="lvNumC">Numero de Telefono:</string>
+    <string name="BtnGC">Guardar Cliente</string>
+
+    <!--Traduccion de la interfaz de clientes-->
+    <string name="lvTC">Clientes</string>
+    <string name="BntAC">Agregar Nuevo Cliente</string>
+
+    <!--Traduccion de la interfaz de ventas-->
+    <string name="lvTV">Ventas</string>
+    <string name="BtnRV">Registrar Nueva Venta</string>
+
+    <!--Traduccion de los mensajes de las clases-->
+    <string name="Opcion">Selecciona una opción.</string>
+    <string name="Editar">Editar</string>
+    <string name="Eliminar">Eliminar</string>
+    <string name="EliCli">Cliente Eliminado.</string>
+    <string name="CActualizado">Cliente Actualizado Correctamente</string>
+    <string name="CRegistrado">Cliente registrado correctamente.</string>
+    <string name="PRegistrado">Producto registrado correctamente.</string>
+    <string name="MsVenta">Venta registrada correctamente.</string>
+    <!--Traduccion de los errores.-->
+    <string name="ErrorEC">Error al eliminar el cliente.</string>
+    <string name="ErrorLogin">Error al Ingresar</string>
+    <string name="ErrorCampos">Por favor, completa todos los campos.</string>
+    <string name="ErrorRV">Error al registrar la venta.</string>
+    <string name="ErrorCM">La cantidad vendida no puede exceder la disponible.</string>
+    <string name="ErrorAC">Error al actualizar el cliente.</string>
+    <string name="ErrorRC">Error al registrar el cliente.</string>
+    <string name="ErrorRP">Error al registrar el producto.</string>
+
+
+
+</resources>

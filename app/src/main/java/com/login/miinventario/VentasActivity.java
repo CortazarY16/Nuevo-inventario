@@ -61,7 +61,7 @@ public class VentasActivity extends AppCompatActivity {
                 int cantidad = cursor.getInt(cursor.getColumnIndex("cantidad"));
                 String fecha = cursor.getString(cursor.getColumnIndex("fecha"));
 
-                String detalleVenta = "Producto: " + producto + "\nCantidad: " + cantidad + "\nFecha: " + fecha;
+                String detalleVenta = "\n"+getString(R.string.Produto) + producto + "\n"+getString(R.string.Cantidad)+" "+ cantidad + "\n"+getString(R.string.Fecha)+" "+ fecha+"\n";
                 ventasList.add(detalleVenta);
             } while (cursor.moveToNext());
 
@@ -73,10 +73,5 @@ public class VentasActivity extends AppCompatActivity {
     }
 
 
-//
-//    private void limpiarCampos() {
-//        etNombreProducto.setText("");
-//        etCantidadVendida.setText("");
-//        etFechaVenta.setText("");
-//    }
+
 }

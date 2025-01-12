@@ -55,12 +55,12 @@ public class RegistrarVentaActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String productoSeleccionado = productosList.get(position);
                 int cantidadDisponible = productoCantidadMap.get(productoSeleccionado);
-                tvCantidadDisponible.setText("Cantidad disponible: " + cantidadDisponible);
+                tvCantidadDisponible.setText(getString(R.string.lvCant)+" " + cantidadDisponible);
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                tvCantidadDisponible.setText("Cantidad disponible: 0");
+                tvCantidadDisponible.setText(getString(R.string.lvCant)+" 0");
             }
         });
 
@@ -98,14 +98,14 @@ public class RegistrarVentaActivity extends AppCompatActivity {
         String fechaVenta = etFechaVenta.getText().toString();
 
         if (cantidadVendidaStr.isEmpty() || fechaVenta.isEmpty()) {
-            Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.ErrorCampos), Toast.LENGTH_SHORT).show();
             return;
         }
 
         int cantidadVendida = Integer.parseInt(cantidadVendidaStr);
 
         if (cantidadVendida > cantidadDisponible) {
-            Toast.makeText(this, "La cantidad vendida no puede exceder la disponible.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.ErrorCM), Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -114,10 +114,10 @@ public class RegistrarVentaActivity extends AppCompatActivity {
 
         if (ventaId != -1) {
             dbHelper.actualizarProducto(productoId, productoSeleccionado, cantidadDisponible - cantidadVendida, 0, 0);
-            Toast.makeText(this, "Venta registrada correctamente.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.MsVenta), Toast.LENGTH_SHORT).show();
             finish();
         } else {
-            Toast.makeText(this, "Error al registrar la venta.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.ErrorRV), Toast.LENGTH_SHORT).show();
         }
     }
 }

@@ -12,7 +12,7 @@
         android:id="@+id/tvTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Menú Principal"
+        android:text="@string/lvPrincipal"
         android:textSize="24sp"
         android:textStyle="bold"
         android:gravity="center"
@@ -22,28 +22,28 @@
         android:id="@+id/btnRegistrarProducto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar Producto"
+        android:text="@string/btnRP"
         android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnProductosExistentes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Productos Existentes"
+        android:text="@string/btnPE"
         android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnVentas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ventas"
+        android:text="@string/btnVe"
         android:layout_marginBottom="16dp"/>
 
     <Button
         android:id="@+id/btnRegistroClientes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registro de Clientes"
+        android:text="@string/btnRC"
         android:layout_marginBottom="16dp"/>
 
 
@@ -51,7 +51,7 @@
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Cerrar Sesión"
+        android:text="@string/bntCS"
         android:layout_marginBottom="16dp"
         android:backgroundTint="#FF0000"
         android:textColor="#FFFFFF"/>

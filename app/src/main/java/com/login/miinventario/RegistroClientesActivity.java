@@ -45,7 +45,7 @@ public class RegistroClientesActivity extends AppCompatActivity {
             String telefono = etTelefonoCliente.getText().toString();
 
             if (nombre.isEmpty() || telefono.isEmpty()) {
-                Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.ErrorCampos), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -53,19 +53,19 @@ public class RegistroClientesActivity extends AppCompatActivity {
                 // Actualizar cliente existente
                 int resultado = dbHelper.actualizarCliente(clienteId, nombre, telefono);
                 if (resultado > 0) {
-                    Toast.makeText(this, "Cliente actualizado correctamente.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.CActualizado), Toast.LENGTH_SHORT).show();
                     finish();
                 } else {
-                    Toast.makeText(this, "Error al actualizar el cliente.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.ErrorAC), Toast.LENGTH_SHORT).show();
                 }
             } else {
                 // Insertar nuevo cliente
                 long id = dbHelper.insertarCliente(nombre, telefono);
                 if (id != -1) {
-                    Toast.makeText(this, "Cliente registrado correctamente.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.CRegistrado), Toast.LENGTH_SHORT).show();
                     limpiarCampos();
                 } else {
-                    Toast.makeText(this, "Error al registrar el cliente.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, getString(R.string.ErrorRC), Toast.LENGTH_SHORT).show();
                 }
             }
         });

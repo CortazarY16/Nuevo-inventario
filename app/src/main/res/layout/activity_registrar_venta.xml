@@ -14,7 +14,7 @@
             android:id="@+id/lvRVentas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="¿QUE QUEREMOS VENDER?"
+            android:text="@string/lvTNV"
             android:gravity="center"
             android:layout_marginBottom="16dp"
             />
@@ -29,14 +29,14 @@
             android:id="@+id/tvCantidadDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cantidad disponible: 0"
+            android:text="@string/lvCant"
             android:layout_marginBottom="16dp" />
 
         <EditText
             android:id="@+id/etCantidadVendida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cantidad Vendida"
+            android:hint="@string/lvCanVen"
             android:inputType="number"
             android:layout_marginBottom="16dp" />
 
@@ -44,13 +44,13 @@
             android:id="@+id/etFechaVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha (YYYY-MM-DD)"
+            android:hint="@string/lvFecha"
             android:layout_marginBottom="16dp" />
 
         <Button
             android:id="@+id/btnRegistrarVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Registrar Venta" />
+            android:text="@string/BtnGV" />
     </LinearLayout>
 </ScrollView>

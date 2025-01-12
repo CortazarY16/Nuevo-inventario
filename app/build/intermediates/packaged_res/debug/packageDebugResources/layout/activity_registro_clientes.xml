@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Registrar Cliente"
+            android:text="@string/lvTNC"
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
@@ -24,7 +24,7 @@
             android:id="@+id/etNombreCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre del Cliente"
+            android:hint="@string/lvNombreC"
             android:inputType="text"
             android:layout_marginBottom="16dp"/>
 
@@ -32,7 +32,7 @@
             android:id="@+id/etTelefonoCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Número de Teléfono"
+            android:hint="@string/lvNumC"
             android:inputType="phone"
             android:layout_marginBottom="16dp"/>
 
@@ -40,7 +40,7 @@
             android:id="@+id/btnGuardarCliente"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar Cliente"
+            android:text="@string/BtnGC"
             android:layout_marginTop="24dp"/>
     </LinearLayout>
 </ScrollView>

@@ -50,7 +50,7 @@ public class RegistroProductoActivity extends AppCompatActivity {
 
             // Validar que los campos no estén vacíos
             if (nombre.isEmpty() || cantidadStr.isEmpty() || precioStr.isEmpty() || costoStr.isEmpty()) {
-                Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.ErrorCampos), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -74,10 +74,10 @@ public class RegistroProductoActivity extends AppCompatActivity {
 
         long id = db.insert("productos", null, values);
         if (id != -1) {
-            Toast.makeText(this, "Producto registrado correctamente.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.PRegistrado), Toast.LENGTH_SHORT).show();
             limpiarCampos();
         } else {
-            Toast.makeText(this, "Error al registrar el producto.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.ErrorRP), Toast.LENGTH_SHORT).show();
         }
     }
 
