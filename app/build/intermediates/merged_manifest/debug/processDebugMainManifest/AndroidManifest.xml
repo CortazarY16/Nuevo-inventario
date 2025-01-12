@@ -28,6 +28,9 @@
         android:testOnly="true"
         android:theme="@style/Theme.MiInventario" >
         <activity
+            android:name="com.login.miinventario.RegistrarVentaActivity"
+            android:exported="false" />
+        <activity
             android:name="com.login.miinventario.ClientesActivity"
             android:exported="false" />
         <activity

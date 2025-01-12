@@ -52,11 +52,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String CREATE_VENTAS_TABLE = "CREATE TABLE " + TABLE_VENTAS + " ("
                 + COLUMN_VENTA_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+                + COLUMN_ID + " INTEGER, "
                 + COLUMN_PRODUCTO + " TEXT, "
                 + COLUMN_CANTIDA + " INTEGER, "
-                + COLUMN_FECHA + " TEXT)";
+                + COLUMN_FECHA + " TEXT, "
+                + "FOREIGN KEY (" + COLUMN_ID + ") REFERENCES " + TABLE_PRODUCTOS + "(" + COLUMN_ID + "))";
         db.execSQL(CREATE_VENTAS_TABLE);
-// Crear tabla de clientes
+
+
+
+        // Crear tabla de clientes
         String CREATE_CLIENTES_TABLE = "CREATE TABLE " + TABLE_CLIENTES + " ("
                 + COLUMN_CLIENTE_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + COLUMN_CLIENTE_NOMBRE + " TEXT, "
@@ -118,10 +123,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_PRODUCTO, producto);
-        values.put(COLUMN_CANTIDAD, cantidad);
+        values.put(COLUMN_CANTIDA, cantidad);
         values.put(COLUMN_FECHA, fecha);
 
-        return db.insert(TABLE_VENTAS, null, values);
+        // Insertar la venta
+        long ventaId = db.insert(TABLE_VENTAS, null, values);
+
+        if (ventaId != -1) {
+            // Actualizar el inventario del producto
+            db.execSQL("UPDATE " + TABLE_PRODUCTOS + " SET "
+                    + COLUMN_CANTIDAD + " = " + COLUMN_CANTIDAD + " - ? WHERE "
+                    + COLUMN_NOMBRE + " = ?", new String[]{String.valueOf(cantidad), producto});
+        }
+
+        return ventaId;
+    }
+
+    public Cursor obtenerVentasConDetalles() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT " + COLUMN_PRODUCTO + ", " + COLUMN_CANTIDA + ", " + COLUMN_FECHA
+                + " FROM " + TABLE_VENTAS;
+        return db.rawQuery(query, null);
     }
 
     // Método para obtener todas las ventas (opcional)

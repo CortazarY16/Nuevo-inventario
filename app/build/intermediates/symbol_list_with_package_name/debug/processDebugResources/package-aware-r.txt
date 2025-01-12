@@ -3213,6 +3213,7 @@ id btnAgregarCliente
 id btnCerrarSesion
 id btnGuardarCliente
 id btnGuardarProducto
+id btnGuardarVenta
 id btnLogin
 id btnProductosExistentes
 id btnRegister
@@ -3221,7 +3222,6 @@ id btnRegistrarVenta
 id btnRegistroClientes
 id btnRegresarMenu
 id btnRegresarMenuClientes
-id btnRegresarMenuVentas
 id btnVentas
 id buttonPanel
 id cache_measures
@@ -3306,14 +3306,13 @@ id enterAlways
 id enterAlwaysCollapsed
 id escape
 id etCantidad
-id etCantidadVendida
 id etCosto
-id etFechaVenta
+id etFecha
 id etNombre
 id etNombreCliente
-id etNombreProducto
 id etPassword
 id etPrecio
+id etProducto
 id etTelefonoCliente
 id etUsuario
 id existencias
@@ -3381,6 +3380,7 @@ id listMode
 id list_item
 id lvClientes
 id lvProductos
+id lvVentas
 id m3_side_sheet
 id mainlogin
 id marquee
@@ -3764,6 +3764,7 @@ layout activity_clientes
 layout activity_login
 layout activity_main
 layout activity_productos_existentes
+layout activity_registrar_venta
 layout activity_registro_clientes
 layout activity_registro_producto
 layout activity_ventas
