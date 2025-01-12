@@ -3379,6 +3379,8 @@ id listMode
 id list_item
 id lvClientes
 id lvProductos
+id lvRVentas
+id lvTituloventa
 id lvVentas
 id m3_side_sheet
 id mainlogin

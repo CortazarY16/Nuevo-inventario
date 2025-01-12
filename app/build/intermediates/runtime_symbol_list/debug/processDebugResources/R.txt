@@ -3378,6 +3378,8 @@ int id listMode 0x7f08010d
 int id list_item 0x7f08010e
 int id lvClientes 0x7f08010f
 int id lvProductos 0x7f080110
+int id lvRVentas 0x7f080220
+int id lvTituloventa 0x7f080221
 int id lvVentas 0x7f08021d
 int id m3_side_sheet 0x7f080111
 int id mainlogin 0x7f080112

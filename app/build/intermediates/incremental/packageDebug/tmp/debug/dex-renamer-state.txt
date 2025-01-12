@@ -1,4 +1,4 @@
-#Sat Jan 11 21:06:50 CST 2025
+#Sat Jan 11 21:16:36 CST 2025
 base.0=C\:\\Proyectos_Andriods\\Nuevo-inventario\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 base.1=C\:\\Proyectos_Andriods\\Nuevo-inventario\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
 base.2=C\:\\Proyectos_Andriods\\Nuevo-inventario\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\3\\classes.dex

@@ -30,6 +30,8 @@ id etUsuario
 id existencias
 id lvClientes
 id lvProductos
+id lvRVentas
+id lvTituloventa
 id lvVentas
 id mainlogin
 id menu
