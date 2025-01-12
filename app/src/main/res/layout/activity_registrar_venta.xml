@@ -10,29 +10,38 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etProducto"
+        <TextView
+            android:id="@+id/tvCantidadDisponible"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre del Producto" />
+            android:text="Cantidad disponible: 0"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
 
         <EditText
-            android:id="@+id/etCantidad"
+            android:id="@+id/etCantidadVendida"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cantidad"
-            android:inputType="number" />
+            android:hint="Cantidad Vendida"
+            android:inputType="number"
+            android:layout_marginBottom="16dp" />
 
         <EditText
-            android:id="@+id/etFecha"
+            android:id="@+id/etFechaVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Fecha (YYYY-MM-DD)" />
+            android:hint="Fecha (YYYY-MM-DD)"
+            android:layout_marginBottom="16dp" />
 
         <Button
-            android:id="@+id/btnGuardarVenta"
+            android:id="@+id/btnRegistrarVenta"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar Venta" />
+            android:text="Registrar Venta" />
     </LinearLayout>
 </ScrollView>

@@ -3213,7 +3213,6 @@ id btnAgregarCliente
 id btnCerrarSesion
 id btnGuardarCliente
 id btnGuardarProducto
-id btnGuardarVenta
 id btnLogin
 id btnProductosExistentes
 id btnRegister
@@ -3306,13 +3305,13 @@ id enterAlways
 id enterAlwaysCollapsed
 id escape
 id etCantidad
+id etCantidadVendida
 id etCosto
-id etFecha
+id etFechaVenta
 id etNombre
 id etNombreCliente
 id etPassword
 id etPrecio
-id etProducto
 id etTelefonoCliente
 id etUsuario
 id existencias
@@ -3548,6 +3547,7 @@ id snackbar_text
 id snap
 id snapMargins
 id south
+id spProducto
 id spacer
 id special_effects_controller_view_tag
 id spline
@@ -3620,6 +3620,7 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvCantidadDisponible
 id tvTitulo
 id tvTituloClientes
 id unchecked

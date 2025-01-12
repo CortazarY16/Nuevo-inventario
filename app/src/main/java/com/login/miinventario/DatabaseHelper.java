@@ -184,6 +184,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.delete("clientes", "id = ?", new String[]{String.valueOf(id)});
     }
 
+    public Cursor obtenerProductosConCantidad() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT " + COLUMN_ID + ", " + COLUMN_NOMBRE + ", " + COLUMN_CANTIDAD
+                + " FROM " + TABLE_PRODUCTOS, null);
+    }
 
 }
 

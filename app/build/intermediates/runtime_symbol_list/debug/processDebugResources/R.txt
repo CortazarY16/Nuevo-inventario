@@ -3212,7 +3212,6 @@ int id btnAgregarCliente 0x7f080065
 int id btnCerrarSesion 0x7f080066
 int id btnGuardarCliente 0x7f080067
 int id btnGuardarProducto 0x7f080068
-int id btnGuardarVenta 0x7f08021a
 int id btnLogin 0x7f080069
 int id btnProductosExistentes 0x7f08006a
 int id btnRegister 0x7f08006b
@@ -3305,13 +3304,13 @@ int id enterAlways 0x7f0800c2
 int id enterAlwaysCollapsed 0x7f0800c3
 int id escape 0x7f0800c4
 int id etCantidad 0x7f0800c5
+int id etCantidadVendida 0x7f0800c6
 int id etCosto 0x7f0800c7
-int id etFecha 0x7f08021b
+int id etFechaVenta 0x7f0800c8
 int id etNombre 0x7f0800c9
 int id etNombreCliente 0x7f0800ca
 int id etPassword 0x7f0800cc
 int id etPrecio 0x7f0800cd
-int id etProducto 0x7f08021c
 int id etTelefonoCliente 0x7f0800ce
 int id etUsuario 0x7f0800cf
 int id existencias 0x7f0800d0
@@ -3547,6 +3546,7 @@ int id snackbar_text 0x7f0801b4
 int id snap 0x7f0801b5
 int id snapMargins 0x7f0801b6
 int id south 0x7f0801b7
+int id spProducto 0x7f08021e
 int id spacer 0x7f0801b8
 int id special_effects_controller_view_tag 0x7f0801b9
 int id spline 0x7f0801ba
@@ -3619,6 +3619,7 @@ int id transition_position 0x7f0801fc
 int id transition_scene_layoutid_cache 0x7f0801fd
 int id transition_transform 0x7f0801fe
 int id triangle 0x7f0801ff
+int id tvCantidadDisponible 0x7f08021f
 int id tvTitulo 0x7f080200
 int id tvTituloClientes 0x7f080201
 int id unchecked 0x7f080202

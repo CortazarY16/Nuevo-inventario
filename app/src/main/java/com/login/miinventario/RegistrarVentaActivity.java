@@ -1,8 +1,14 @@
 package com.login.miinventario;
 
+import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -11,43 +17,108 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class RegistrarVentaActivity extends AppCompatActivity {
 
-    private EditText etProducto, etCantidad, etFecha;
-    private Button btnGuardarVenta;
+    private Spinner spProducto;
+    private TextView tvCantidadDisponible;
+    private EditText etCantidadVendida, etFechaVenta;
+    private Button btnRegistrarVenta;
     private DatabaseHelper dbHelper;
+
+    private ArrayList<String> productosList;
+    private HashMap<String, Integer> productoIdMap;
+    private HashMap<String, Integer> productoCantidadMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar_venta);
 
-        etProducto = findViewById(R.id.etProducto);
-        etCantidad = findViewById(R.id.etCantidad);
-        etFecha = findViewById(R.id.etFecha);
-        btnGuardarVenta = findViewById(R.id.btnGuardarVenta);
+        spProducto = findViewById(R.id.spProducto);
+        tvCantidadDisponible = findViewById(R.id.tvCantidadDisponible);
+        etCantidadVendida = findViewById(R.id.etCantidadVendida);
+        etFechaVenta = findViewById(R.id.etFechaVenta);
+        btnRegistrarVenta = findViewById(R.id.btnRegistrarVenta);
 
         dbHelper = new DatabaseHelper(this);
+        productosList = new ArrayList<>();
+        productoIdMap = new HashMap<>();
+        productoCantidadMap = new HashMap<>();
 
-        btnGuardarVenta.setOnClickListener(v -> {
-            String producto = etProducto.getText().toString();
-            String cantidadStr = etCantidad.getText().toString();
-            String fecha = etFecha.getText().toString();
+        cargarProductos();
 
-            if (producto.isEmpty() || cantidadStr.isEmpty() || fecha.isEmpty()) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
-                return;
+        spProducto.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String productoSeleccionado = productosList.get(position);
+                int cantidadDisponible = productoCantidadMap.get(productoSeleccionado);
+                tvCantidadDisponible.setText("Cantidad disponible: " + cantidadDisponible);
             }
 
-            int cantidad = Integer.parseInt(cantidadStr);
-            long id = dbHelper.insertarVenta(producto, cantidad, fecha);
-
-            if (id != -1) {
-                Toast.makeText(this, "Venta registrada correctamente", Toast.LENGTH_SHORT).show();
-                finish();
-            } else {
-                Toast.makeText(this, "Error al registrar la venta", Toast.LENGTH_SHORT).show();
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                tvCantidadDisponible.setText("Cantidad disponible: 0");
             }
         });
+
+        btnRegistrarVenta.setOnClickListener(v -> registrarVenta());
+    }
+
+    private void cargarProductos() {
+        Cursor cursor = dbHelper.obtenerProductosConCantidad();
+
+        if (cursor != null && cursor.moveToFirst()) {
+            do {
+                int id = cursor.getInt(cursor.getColumnIndex("id"));
+                String nombre = cursor.getString(cursor.getColumnIndex("nombre"));
+                int cantidad = cursor.getInt(cursor.getColumnIndex("cantidad"));
+
+                productosList.add(nombre);
+                productoIdMap.put(nombre, id);
+                productoCantidadMap.put(nombre, cantidad);
+            } while (cursor.moveToNext());
+
+            cursor.close();
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, productosList);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spProducto.setAdapter(adapter);
+    }
+
+    private void registrarVenta() {
+        String productoSeleccionado = (String) spProducto.getSelectedItem();
+        int productoId = productoIdMap.get(productoSeleccionado);
+        int cantidadDisponible = productoCantidadMap.get(productoSeleccionado);
+
+        String cantidadVendidaStr = etCantidadVendida.getText().toString();
+        String fechaVenta = etFechaVenta.getText().toString();
+
+        if (cantidadVendidaStr.isEmpty() || fechaVenta.isEmpty()) {
+            Toast.makeText(this, "Por favor, completa todos los campos.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int cantidadVendida = Integer.parseInt(cantidadVendidaStr);
+
+        if (cantidadVendida > cantidadDisponible) {
+            Toast.makeText(this, "La cantidad vendida no puede exceder la disponible.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        // Registrar la venta y actualizar inventario
+        long ventaId = dbHelper.insertarVenta(productoSeleccionado, cantidadVendida, fechaVenta);
+
+        if (ventaId != -1) {
+            dbHelper.actualizarProducto(productoId, productoSeleccionado, cantidadDisponible - cantidadVendida, 0, 0);
+            Toast.makeText(this, "Venta registrada correctamente.", Toast.LENGTH_SHORT).show();
+            finish();
+        } else {
+            Toast.makeText(this, "Error al registrar la venta.", Toast.LENGTH_SHORT).show();
+        }
     }
 }
+

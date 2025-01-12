@@ -8,7 +8,6 @@ id btnAgregarCliente
 id btnCerrarSesion
 id btnGuardarCliente
 id btnGuardarProducto
-id btnGuardarVenta
 id btnLogin
 id btnProductosExistentes
 id btnRegister
@@ -19,13 +18,13 @@ id btnRegresarMenu
 id btnRegresarMenuClientes
 id btnVentas
 id etCantidad
+id etCantidadVendida
 id etCosto
-id etFecha
+id etFechaVenta
 id etNombre
 id etNombreCliente
 id etPassword
 id etPrecio
-id etProducto
 id etTelefonoCliente
 id etUsuario
 id existencias
@@ -35,6 +34,8 @@ id lvVentas
 id mainlogin
 id menu
 id registrar
+id spProducto
+id tvCantidadDisponible
 id tvTitulo
 id tvTituloClientes
 layout activity_clientes
